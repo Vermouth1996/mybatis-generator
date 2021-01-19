@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisgenerator.mapper.CustomerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisgenerator.model.CustomerInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="wechat_id" jdbcType="VARCHAR" property="wechatId" />
+    <result column="customer_user_id" jdbcType="VARCHAR" property="customerUserId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="customer_detail" jdbcType="VARCHAR" property="customerDetail" />
+    <result column="customer_unionid" jdbcType="VARCHAR" property="customerUnionid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterprise_id, wechat_id, customer_user_id, `type`, `name`, avatar, gender, customer_detail, 
+    customer_unionid, create_time, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from customer_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from customer_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.CustomerInfo" useGeneratedKeys="true">
+    insert into customer_info (enterprise_id, wechat_id, customer_user_id, 
+      `type`, `name`, avatar, 
+      gender, customer_detail, customer_unionid, 
+      create_time, update_time, is_delete
+      )
+    values (#{enterpriseId,jdbcType=INTEGER}, #{wechatId,jdbcType=VARCHAR}, #{customerUserId,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=TINYINT}, #{customerDetail,jdbcType=VARCHAR}, #{customerUnionid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.CustomerInfo" useGeneratedKeys="true">
+    insert into customer_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="wechatId != null">
+        wechat_id,
+      </if>
+      <if test="customerUserId != null">
+        customer_user_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="customerDetail != null">
+        customer_detail,
+      </if>
+      <if test="customerUnionid != null">
+        customer_unionid,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="wechatId != null">
+        #{wechatId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerUserId != null">
+        #{customerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="customerDetail != null">
+        #{customerDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="customerUnionid != null">
+        #{customerUnionid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatisgenerator.model.CustomerInfo">
+    update customer_info
+    <set>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="wechatId != null">
+        wechat_id = #{wechatId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerUserId != null">
+        customer_user_id = #{customerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="customerDetail != null">
+        customer_detail = #{customerDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="customerUnionid != null">
+        customer_unionid = #{customerUnionid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatisgenerator.model.CustomerInfo">
+    update customer_info
+    set enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      wechat_id = #{wechatId,jdbcType=VARCHAR},
+      customer_user_id = #{customerUserId,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=TINYINT},
+      customer_detail = #{customerDetail,jdbcType=VARCHAR},
+      customer_unionid = #{customerUnionid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
