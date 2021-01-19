@@ -24,14 +24,14 @@
         <!--自动生成序列化-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 
-        <commentGenerator type="com.mybatisgenerator.MySelfCommentGeneratorV2">
+        <commentGenerator type="com.mybatisgenerator.MyCommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-            <property name="suppressAllComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
 
             <!--suppressDate是去掉生成日期那行注释-->
-            <property name="suppressDate" value="true"/>
+            <property name="suppressDate" value="false"/>
 
-            <property name="addRemarkComments" value="true"/>
+            <property name="addRemarkComments" value="false"/>
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"

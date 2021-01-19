@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CustomerInfo implements Serializable {
-    /**
-     * 
-     */
     private Integer id;
 
     /**
@@ -29,9 +26,6 @@ public class CustomerInfo implements Serializable {
      */
     private Integer type;
 
-    /**
-     * 
-     */
     private String name;
 
     /**
@@ -44,9 +38,6 @@ public class CustomerInfo implements Serializable {
      */
     private Byte gender;
 
-    /**
-     * 
-     */
     private String customerDetail;
 
     /**
@@ -54,19 +45,10 @@ public class CustomerInfo implements Serializable {
      */
     private String customerUnionid;
 
-    /**
-     * 
-     */
     private Date createTime;
 
-    /**
-     * 
-     */
     private Date updateTime;
 
-    /**
-     * 
-     */
     private Byte isDelete;
 
     private static final long serialVersionUID = 1L;
