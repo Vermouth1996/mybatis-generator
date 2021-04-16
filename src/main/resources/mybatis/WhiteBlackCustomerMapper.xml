@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisgenerator.mapper.WhiteBlackCustomerMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisgenerator.model.WhiteBlackCustomer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="customer_user_id" jdbcType="VARCHAR" property="customerUserId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="join_time" jdbcType="TIMESTAMP" property="joinTime" />
+    <result column="join_way" jdbcType="INTEGER" property="joinWay" />
+    <result column="wechat_id" jdbcType="VARCHAR" property="wechatId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterprise_id, customer_user_id, create_time, update_time, is_delete, `status`, 
+    join_time, join_way, wechat_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from white_black_customer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from white_black_customer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.WhiteBlackCustomer" useGeneratedKeys="true">
+    insert into white_black_customer (enterprise_id, customer_user_id, create_time, 
+      update_time, is_delete, `status`, 
+      join_time, join_way, wechat_id
+      )
+    values (#{enterpriseId,jdbcType=INTEGER}, #{customerUserId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT}, #{status,jdbcType=INTEGER}, 
+      #{joinTime,jdbcType=TIMESTAMP}, #{joinWay,jdbcType=INTEGER}, #{wechatId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.WhiteBlackCustomer" useGeneratedKeys="true">
+    insert into white_black_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="customerUserId != null">
+        customer_user_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="joinTime != null">
+        join_time,
+      </if>
+      <if test="joinWay != null">
+        join_way,
+      </if>
+      <if test="wechatId != null">
+        wechat_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="customerUserId != null">
+        #{customerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="joinTime != null">
+        #{joinTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinWay != null">
+        #{joinWay,jdbcType=INTEGER},
+      </if>
+      <if test="wechatId != null">
+        #{wechatId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatisgenerator.model.WhiteBlackCustomer">
+    update white_black_customer
+    <set>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="customerUserId != null">
+        customer_user_id = #{customerUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="joinTime != null">
+        join_time = #{joinTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="joinWay != null">
+        join_way = #{joinWay,jdbcType=INTEGER},
+      </if>
+      <if test="wechatId != null">
+        wechat_id = #{wechatId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatisgenerator.model.WhiteBlackCustomer">
+    update white_black_customer
+    set enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      customer_user_id = #{customerUserId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      `status` = #{status,jdbcType=INTEGER},
+      join_time = #{joinTime,jdbcType=TIMESTAMP},
+      join_way = #{joinWay,jdbcType=INTEGER},
+      wechat_id = #{wechatId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

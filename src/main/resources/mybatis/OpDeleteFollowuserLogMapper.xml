@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisgenerator.mapper.OpDeleteFollowuserLogMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisgenerator.model.OpDeleteFollowuserLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="external_userid" jdbcType="VARCHAR" property="externalUserid" />
+    <result column="external_name" jdbcType="VARCHAR" property="externalName" />
+    <result column="external_remark" jdbcType="VARCHAR" property="externalRemark" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="tag_names" jdbcType="VARCHAR" property="tagNames" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="remark_mobiles" jdbcType="VARCHAR" property="remarkMobiles" />
+    <result column="add_way" jdbcType="INTEGER" property="addWay" />
+    <result column="add_time" jdbcType="INTEGER" property="addTime" />
+    <result column="follow_userid" jdbcType="VARCHAR" property="followUserid" />
+    <result column="follow_name" jdbcType="VARCHAR" property="followName" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterprise_id, external_userid, external_name, external_remark, `type`, avatar, 
+    gender, tag_names, tags, remark_mobiles, add_way, add_time, follow_userid, follow_name, 
+    `status`, is_delete, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from op_delete_followuser_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from op_delete_followuser_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.OpDeleteFollowuserLog" useGeneratedKeys="true">
+    insert into op_delete_followuser_log (enterprise_id, external_userid, external_name, 
+      external_remark, `type`, avatar, 
+      gender, tag_names, tags, 
+      remark_mobiles, add_way, add_time, 
+      follow_userid, follow_name, `status`, 
+      is_delete, create_time, update_time
+      )
+    values (#{enterpriseId,jdbcType=INTEGER}, #{externalUserid,jdbcType=VARCHAR}, #{externalName,jdbcType=VARCHAR}, 
+      #{externalRemark,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{tagNames,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
+      #{remarkMobiles,jdbcType=VARCHAR}, #{addWay,jdbcType=INTEGER}, #{addTime,jdbcType=INTEGER}, 
+      #{followUserid,jdbcType=VARCHAR}, #{followName,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{isDelete,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.OpDeleteFollowuserLog" useGeneratedKeys="true">
+    insert into op_delete_followuser_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="externalUserid != null">
+        external_userid,
+      </if>
+      <if test="externalName != null">
+        external_name,
+      </if>
+      <if test="externalRemark != null">
+        external_remark,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="tagNames != null">
+        tag_names,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="remarkMobiles != null">
+        remark_mobiles,
+      </if>
+      <if test="addWay != null">
+        add_way,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="followUserid != null">
+        follow_userid,
+      </if>
+      <if test="followName != null">
+        follow_name,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="externalUserid != null">
+        #{externalUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="externalName != null">
+        #{externalName,jdbcType=VARCHAR},
+      </if>
+      <if test="externalRemark != null">
+        #{externalRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="tagNames != null">
+        #{tagNames,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkMobiles != null">
+        #{remarkMobiles,jdbcType=VARCHAR},
+      </if>
+      <if test="addWay != null">
+        #{addWay,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="followUserid != null">
+        #{followUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="followName != null">
+        #{followName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatisgenerator.model.OpDeleteFollowuserLog">
+    update op_delete_followuser_log
+    <set>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="externalUserid != null">
+        external_userid = #{externalUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="externalName != null">
+        external_name = #{externalName,jdbcType=VARCHAR},
+      </if>
+      <if test="externalRemark != null">
+        external_remark = #{externalRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="tagNames != null">
+        tag_names = #{tagNames,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="remarkMobiles != null">
+        remark_mobiles = #{remarkMobiles,jdbcType=VARCHAR},
+      </if>
+      <if test="addWay != null">
+        add_way = #{addWay,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="followUserid != null">
+        follow_userid = #{followUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="followName != null">
+        follow_name = #{followName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatisgenerator.model.OpDeleteFollowuserLog">
+    update op_delete_followuser_log
+    set enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      external_userid = #{externalUserid,jdbcType=VARCHAR},
+      external_name = #{externalName,jdbcType=VARCHAR},
+      external_remark = #{externalRemark,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      tag_names = #{tagNames,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      remark_mobiles = #{remarkMobiles,jdbcType=VARCHAR},
+      add_way = #{addWay,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=INTEGER},
+      follow_userid = #{followUserid,jdbcType=VARCHAR},
+      follow_name = #{followName,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

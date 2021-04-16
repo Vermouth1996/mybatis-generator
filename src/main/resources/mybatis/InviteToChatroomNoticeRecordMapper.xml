@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisgenerator.mapper.InviteToChatroomNoticeRecordMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisgenerator.model.InviteToChatroomNoticeRecord">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_id" jdbcType="INTEGER" property="taskId" />
+    <result column="send_message_threshold" jdbcType="INTEGER" property="sendMessageThreshold" />
+    <result column="notice_chat_owner_threshold" jdbcType="INTEGER" property="noticeChatOwnerThreshold" />
+    <result column="message_content" jdbcType="VARCHAR" property="messageContent" />
+    <result column="is_notice_all" jdbcType="INTEGER" property="isNoticeAll" />
+    <result column="send_status" jdbcType="INTEGER" property="sendStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="group_serial_no" jdbcType="VARCHAR" property="groupSerialNo" />
+    <result column="chat_id" jdbcType="VARCHAR" property="chatId" />
+    <result column="delete_mark_id" jdbcType="INTEGER" property="deleteMarkId" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="chat_owner_id" jdbcType="VARCHAR" property="chatOwnerId" />
+    <result column="inviter_id" jdbcType="VARCHAR" property="inviterId" />
+    <result column="record_id" jdbcType="VARCHAR" property="recordId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="notice_group_owner_status" jdbcType="INTEGER" property="noticeGroupOwnerStatus" />
+    <result column="chat_name" jdbcType="VARCHAR" property="chatName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, task_id, send_message_threshold, notice_chat_owner_threshold, message_content, 
+    is_notice_all, send_status, create_time, update_time, group_serial_no, chat_id, delete_mark_id, 
+    enterprise_id, chat_owner_id, inviter_id, record_id, remark, notice_group_owner_status, 
+    chat_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from invite_to_chatroom_notice_record
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from invite_to_chatroom_notice_record
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.InviteToChatroomNoticeRecord" useGeneratedKeys="true">
+    insert into invite_to_chatroom_notice_record (task_id, send_message_threshold, notice_chat_owner_threshold, 
+      message_content, is_notice_all, send_status, 
+      create_time, update_time, group_serial_no, 
+      chat_id, delete_mark_id, enterprise_id, 
+      chat_owner_id, inviter_id, record_id, 
+      remark, notice_group_owner_status, chat_name
+      )
+    values (#{taskId}, #{sendMessageThreshold}, #{noticeChatOwnerThreshold}, 
+      #{messageContent}, #{isNoticeAll}, #{sendStatus}, 
+      #{createTime}, #{updateTime}, #{groupSerialNo}, 
+      #{chatId}, #{deleteMarkId}, #{enterpriseId}, 
+      #{chatOwnerId}, #{inviterId}, #{recordId}, 
+      #{remark}, #{noticeGroupOwnerStatus}, #{chatName}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.InviteToChatroomNoticeRecord" useGeneratedKeys="true">
+    insert into invite_to_chatroom_notice_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="sendMessageThreshold != null">
+        send_message_threshold,
+      </if>
+      <if test="noticeChatOwnerThreshold != null">
+        notice_chat_owner_threshold,
+      </if>
+      <if test="messageContent != null">
+        message_content,
+      </if>
+      <if test="isNoticeAll != null">
+        is_notice_all,
+      </if>
+      <if test="sendStatus != null">
+        send_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="groupSerialNo != null">
+        group_serial_no,
+      </if>
+      <if test="chatId != null">
+        chat_id,
+      </if>
+      <if test="deleteMarkId != null">
+        delete_mark_id,
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="chatOwnerId != null">
+        chat_owner_id,
+      </if>
+      <if test="inviterId != null">
+        inviter_id,
+      </if>
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="noticeGroupOwnerStatus != null">
+        notice_group_owner_status,
+      </if>
+      <if test="chatName != null">
+        chat_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskId != null">
+        #{taskId},
+      </if>
+      <if test="sendMessageThreshold != null">
+        #{sendMessageThreshold},
+      </if>
+      <if test="noticeChatOwnerThreshold != null">
+        #{noticeChatOwnerThreshold},
+      </if>
+      <if test="messageContent != null">
+        #{messageContent},
+      </if>
+      <if test="isNoticeAll != null">
+        #{isNoticeAll},
+      </if>
+      <if test="sendStatus != null">
+        #{sendStatus},
+      </if>
+      <if test="createTime != null">
+        #{createTime},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime},
+      </if>
+      <if test="groupSerialNo != null">
+        #{groupSerialNo},
+      </if>
+      <if test="chatId != null">
+        #{chatId},
+      </if>
+      <if test="deleteMarkId != null">
+        #{deleteMarkId},
+      </if>
+      <if test="enterpriseId != null">
+        #{enterpriseId},
+      </if>
+      <if test="chatOwnerId != null">
+        #{chatOwnerId},
+      </if>
+      <if test="inviterId != null">
+        #{inviterId},
+      </if>
+      <if test="recordId != null">
+        #{recordId},
+      </if>
+      <if test="remark != null">
+        #{remark},
+      </if>
+      <if test="noticeGroupOwnerStatus != null">
+        #{noticeGroupOwnerStatus},
+      </if>
+      <if test="chatName != null">
+        #{chatName},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatisgenerator.model.InviteToChatroomNoticeRecord">
+    update invite_to_chatroom_notice_record
+    <set>
+      <if test="taskId != null">
+        task_id = #{taskId},
+      </if>
+      <if test="sendMessageThreshold != null">
+        send_message_threshold = #{sendMessageThreshold},
+      </if>
+      <if test="noticeChatOwnerThreshold != null">
+        notice_chat_owner_threshold = #{noticeChatOwnerThreshold},
+      </if>
+      <if test="messageContent != null">
+        message_content = #{messageContent},
+      </if>
+      <if test="isNoticeAll != null">
+        is_notice_all = #{isNoticeAll},
+      </if>
+      <if test="sendStatus != null">
+        send_status = #{sendStatus},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime},
+      </if>
+      <if test="groupSerialNo != null">
+        group_serial_no = #{groupSerialNo},
+      </if>
+      <if test="chatId != null">
+        chat_id = #{chatId},
+      </if>
+      <if test="deleteMarkId != null">
+        delete_mark_id = #{deleteMarkId},
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId},
+      </if>
+      <if test="chatOwnerId != null">
+        chat_owner_id = #{chatOwnerId},
+      </if>
+      <if test="inviterId != null">
+        inviter_id = #{inviterId},
+      </if>
+      <if test="recordId != null">
+        record_id = #{recordId},
+      </if>
+      <if test="remark != null">
+        remark = #{remark},
+      </if>
+      <if test="noticeGroupOwnerStatus != null">
+        notice_group_owner_status = #{noticeGroupOwnerStatus},
+      </if>
+      <if test="chatName != null">
+        chat_name = #{chatName},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatisgenerator.model.InviteToChatroomNoticeRecord">
+    update invite_to_chatroom_notice_record
+    set task_id = #{taskId},
+      send_message_threshold = #{sendMessageThreshold},
+      notice_chat_owner_threshold = #{noticeChatOwnerThreshold},
+      message_content = #{messageContent},
+      is_notice_all = #{isNoticeAll},
+      send_status = #{sendStatus},
+      create_time = #{createTime},
+      update_time = #{updateTime},
+      group_serial_no = #{groupSerialNo},
+      chat_id = #{chatId},
+      delete_mark_id = #{deleteMarkId},
+      enterprise_id = #{enterpriseId},
+      chat_owner_id = #{chatOwnerId},
+      inviter_id = #{inviterId},
+      record_id = #{recordId},
+      remark = #{remark},
+      notice_group_owner_status = #{noticeGroupOwnerStatus},
+      chat_name = #{chatName}
+    where id = #{id}
+  </update>
+</mapper>

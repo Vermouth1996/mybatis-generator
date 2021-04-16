@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatisgenerator.mapper.GroupAnnouncementTaskMapper">
+  <resultMap id="BaseResultMap" type="com.mybatisgenerator.model.GroupAnnouncementTask">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_name" jdbcType="VARCHAR" property="taskName" />
+    <result column="task_type" jdbcType="INTEGER" property="taskType" />
+    <result column="task_status" jdbcType="INTEGER" property="taskStatus" />
+    <result column="create_user_id" jdbcType="INTEGER" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="task_style" jdbcType="INTEGER" property="taskStyle" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, task_name, task_type, task_status, create_user_id, create_user_name, enterprise_id, 
+    task_style, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from group_announcement_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from group_announcement_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.GroupAnnouncementTask" useGeneratedKeys="true">
+    insert into group_announcement_task (task_name, task_type, task_status, 
+      create_user_id, create_user_name, enterprise_id, 
+      task_style, create_time, update_time
+      )
+    values (#{taskName,jdbcType=VARCHAR}, #{taskType,jdbcType=INTEGER}, #{taskStatus,jdbcType=INTEGER}, 
+      #{createUserId,jdbcType=INTEGER}, #{createUserName,jdbcType=VARCHAR}, #{enterpriseId,jdbcType=INTEGER}, 
+      #{taskStyle,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatisgenerator.model.GroupAnnouncementTask" useGeneratedKeys="true">
+    insert into group_announcement_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskName != null">
+        task_name,
+      </if>
+      <if test="taskType != null">
+        task_type,
+      </if>
+      <if test="taskStatus != null">
+        task_status,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="taskStyle != null">
+        task_style,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskName != null">
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null">
+        #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStyle != null">
+        #{taskStyle,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatisgenerator.model.GroupAnnouncementTask">
+    update group_announcement_task
+    <set>
+      <if test="taskName != null">
+        task_name = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskType != null">
+        task_type = #{taskType,jdbcType=INTEGER},
+      </if>
+      <if test="taskStatus != null">
+        task_status = #{taskStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null">
+        create_user_id = #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserName != null">
+        create_user_name = #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="taskStyle != null">
+        task_style = #{taskStyle,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatisgenerator.model.GroupAnnouncementTask">
+    update group_announcement_task
+    set task_name = #{taskName,jdbcType=VARCHAR},
+      task_type = #{taskType,jdbcType=INTEGER},
+      task_status = #{taskStatus,jdbcType=INTEGER},
+      create_user_id = #{createUserId,jdbcType=INTEGER},
+      create_user_name = #{createUserName,jdbcType=VARCHAR},
+      enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      task_style = #{taskStyle,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
